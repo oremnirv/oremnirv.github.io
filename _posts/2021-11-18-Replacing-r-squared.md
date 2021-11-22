@@ -51,7 +51,7 @@ $$
 $$
 
 
-where yflis the average of all the recorded yt values used for training our model. In figure [1.2](#_page2_x110.55_y176.62) we can see the denominator terms in the $R^2$, and in figure [1.3](#_page3_x110.55_y34.85) both the denominator and numerator terms.
+where $\bar(y)$ the average of all the recorded yt values used for training our model. In figure [1.2](#_page2_x110.55_y176.62) we can see the denominator terms in the $R^2$, and in figure [1.3](#_page3_x110.55_y34.85) both the denominator and numerator terms.
 
 ![](/figures/post_r_squared/a2.jpg)
 **Figure 1.3**
@@ -61,7 +61,7 @@ Let’s explore the terms in the formula for $R^2$ through a probabilistic lens.
 $y_t \sim \operatorname{Normal}(f(t), σ^2)$
 
 where we chose to model the mean temperature values $f(t)$ based only on
-time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). The derivation of the MSE term is as follows: 
+time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). To show that the MSE is equal to the negative log-likelihood of the data, we provide a full derivation, starting from the definition of the log-likelihood.
 
 ![](/figures/post_r_squared/a4.jpg)
 **Figure 1.4**
