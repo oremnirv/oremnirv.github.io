@@ -32,7 +32,7 @@ Let’s take a concrete example — this will help us show that log-likelihood i
 ![image-title-here](/figures/post_r_squared/a5.jpg)
 **Figure 1.0**
 
-which represent the factitious temperatures (°C) measured over five consecutive days in London in November 2002. m+ 5 is the size of our full dataset, $m$ being the size of the training set and $m+1,... m+5$ the indices of the test set. For conciseness, we introduce some mathematical notation: take the recorded temperature values at date $t = m+1...m+5$ to be denoted by $y_t \in R$; e.g, $y_{m+3} = 5.7$ is the temperature recorded on 14-11-02. Our prediction task is shown in figure [1.1](#_page1_x110.55_y92.49), where we are given the pairs $(t = 1,y_1),...(t = m,y_m)$ as training data and we are asked to predict the question marks for $t = [m+1,..., m+5]$.
+which represent the factitious temperatures (°C) measured over five consecutive days in London in November 2002. $m+5$ is the size of our full dataset, $m$ being the size of the training set and $m+1,... m+5$ the indices of the test set. For conciseness, we introduce some mathematical notation: take the recorded temperature values at date $t = m+1...m+5$ to be denoted by $y_t \in R$; e.g, $y_{m+3} = 5.7$ is the temperature recorded on 14-11-02. Our prediction task is shown in figure [1.1](#_page1_x110.55_y92.49), where we are given the pairs $(t = 1,y_1),...(t = m,y_m)$ as training data and we are asked to predict the question marks for $t = [m+1,..., m+5]$.
 
 ![image-title-here](/figures/post_r_squared/a1.jpg)
 **Figure 1.1**
@@ -66,8 +66,7 @@ time $t$. This result is not specific to our model, but to any model with a norm
 ![](/figures/post_r_squared/a4.jpg)
 **Figure 1.4**
 
-
- In the same manner we can think of the denominator of the second term representing the model (call it M2)
+In the same manner we can think of the denominator of the second term representing the model (call it M2)
 
 $y_t \sim  \operatorname{Normal}(\bar{y}, ρ^2)$
 
@@ -79,4 +78,4 @@ and hence calculating $R^2$ is the reciprocal value to the maximum likelihood ra
 $$R^{2} = 1 - \dfrac{\min\limits_{\sigma^{2}} -\ell(y_1, \dots, y_m|M1)}{\min\limits_{\rho^{2}} -\ell(y_1, \dots, y_m|M2)}$$
 
 
-, and if you model your problem with a fixed variance, then $R^2$ is just another way to communicate the likelihood ratio. However, if you use a model with non fixed variance, for example $y_t$ ∼ Normal(f(t), $σ(t)^2$), evaluating it with $R^2$ will completely ignore the fact that you have a non fixed variance. An example of such a model is Gaussian Process. Instead, **you can just use the likelihood of your model, rather than just plugging the values into the $R^2$ formula**.
+, and if you model your problem with a fixed variance, then $R^2$ is just another way to communicate the likelihood ratio. However, if you use a model with non fixed variance, for example $y_t \sim  \operatorname{Normal}(f(t), σ(t)^2)$, evaluating it with $R^2$ will completely ignore the fact that you have a non fixed variance. An example of such a model is Gaussian Process. Instead, **you can just use the likelihood of your model, rather than just plugging the values into the $R^2$ formula**.
