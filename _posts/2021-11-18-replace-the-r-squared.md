@@ -23,11 +23,13 @@ MathJax.Hub.Queue(function() {
 1. $R^2$ *or the log-likelihood?*
 
 
-**Info:** This post may be of interest to scholars and practitioners who have already used/heard about the R2 metric and are familiar with maximum likelihood estimation.
+**Info:** This post may be of interest to scholars and practitioners who have already used/heard about the $R^2$ metric and are familiar with maximum likelihood estimation.
 
 $R^2$ **is useful when your model outputs fixed uncertainty. But log-likelihood is broader —- it can also deal with outputs with non fixed uncertainty!**
 
 Let’s take a concrete example — this will help us show that log-likelihood is a broader measure than $R^2$. Imagine we have the following test set (data points we have hidden away to assess our model):
+
+![image-title-here](/figures/post_r_squared/a0.jpg)
 
 
 which represent the factitious temperatures (°C) measured over five consecutive days in London in November 2002. m+ 5 is the size of our full dataset, $m$ being the size of the training set and $m+1,... m+5$ the indices of the test set. For conciseness, we introduce some mathematical notation: take the recorded temperature values at date $t = m+1...m+5$ to be denoted by $y_t \in R$; e.g, $y_m+3 = 5.7$ is the temperature recorded on 14-11-02. Our prediction task is shown in figure [1.1](#_page1_x110.55_y92.49), where we are given the pairs $(t = 1,y_1),...(t = m,y_m)$ as training data and we are asked to predict the question marks for $t = [m+1,..., m+5]$.
@@ -37,6 +39,8 @@ which represent the factitious temperatures (°C) measured over five consecutive
 
 We have also constructed a model to predict those temperature values in the test set. Let’s denote the predicted temperature values as $y_t \in R$. Constructing a table with the math notation and inserting the predicted values we have:
 
+![image-title-here](/figures/post_r_squared/a5.jpg)
+**Figure 1.2**
 
 
 
@@ -51,20 +55,27 @@ where yflis the average of all the recorded yt values used for training our mode
 
 ![](/figures/post_r_squared/a2.jpg)
 
-**Figure 1.2**
+**Figure 1.3**
 
-Let’s explore the terms in the formula for R2 through a probabilistic lens. Then, we can readily see what is $R^2$ useful for and what it is not. The numerator of the second term in the formula, namely $\sum_{t} \dfrac{1}{N} (y_{t} - \hat{y_{t}})^{2}$, is the mean squared error (MSE). The MSE can be viewed as a recipe to assess errors, in which the square operation is placed to avoid errors canceling each other; or, it can be viewed probabilisticly as the result of minimising the negative log-likelihood of the variance term in the following model (call it M1):
+Let’s explore the terms in the formula for $R^2$ through a probabilistic lens. Then, we can readily see what is $R^2$ useful for and what it is not. The numerator of the second term in the formula, namely $\sum_{t} \dfrac{1}{N} (y_{t} - \hat{y_{t}})^{2}$, is the mean squared error (MSE). The MSE can be viewed as a recipe to assess errors, in which the square operation is placed to avoid errors canceling each other; or, it can be viewed probabilisticly as the result of minimising the negative log-likelihood of the variance term in the following model (call it M1):
 
 $y_t \sim \operatorname{Normal}(f(t), σ^2)$
 
 where we chose to model the mean temperature values $f(t)$ based only on
-time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). In the same manner we can think of the denominator of the second term representing the model (call it M2)
+time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). The derivation of the MSE term is as follows: 
+
+![](/figures/post_r_squared/a4.jpg)
+
+**Figure 1.4**
+
+
+ In the same manner we can think of the denominator of the second term representing the model (call it M2)
 
 $y_t \sim  \operatorname{Normal}(\bar{y}, ρ^2)$
 
 ![](/figures/post_r_squared/a3.jpg)
 
-**Figure 1.3**
+**Figure 1.5**
 
 and hence calculating $R^2$ is the reciprocal value to the maximum likelihood ratio between the fixed variances (in our case σ and ρ) of normally distributed random variables. In other words
 
