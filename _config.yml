@@ -29,8 +29,8 @@ twitter_username: omer_nivron
 
 # Build settings
 theme: minima
-# plugins:
-#   - jekyll-feed
+plugins:
+  - jekyll-feed
 markdown: kramdown
 
 # Exclude from processing.
