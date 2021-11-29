@@ -1,6 +1,11 @@
+
 ---
+layout: post
 comments: true
+# other options
 ---
+
+
 <style TYPE="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
@@ -19,7 +24,6 @@ MathJax.Hub.Queue(function() {
 });
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
-
 
 
 
@@ -84,4 +88,3 @@ $$R^{2} = 1 - \dfrac{\min\limits_{\sigma^{2}} -\ell(y_1, \dots, y_m|M1)}{\min\li
 , and if you model your problem with a fixed variance, then $R^2$ is just another way to communicate the likelihood ratio. However, if you use a model with non fixed variance, for example $y_t \sim  \operatorname{Normal}(f(t), σ(t)^2)$, evaluating it with $R^2$ will completely ignore the fact that you have a non fixed variance. An example of such a model is Gaussian Process. Instead, **you can just use the likelihood of your model, rather than just plugging the values into the $R^2$ formula**.
 
 
- {% include comments.html %}
