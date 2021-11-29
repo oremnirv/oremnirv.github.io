@@ -10,6 +10,7 @@ mathjax: true
 <style>
 .wrap {
     max-width: 900px;
+    margin-left: 480;
 }
 p {
     font-family: sans-serif;
