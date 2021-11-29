@@ -1,6 +1,3 @@
-
-
-
 ---
 layout: post
 comments: true
