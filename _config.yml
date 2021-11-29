@@ -34,7 +34,7 @@ plugins:
 markdown: kramdown
 
 disqus:  
-  shortname: (disqus_xR9Bt57cAX)
+  shortname: (https-oremnirv-github-io)
 
 # Exclude from processing.
 # The following items will not be processed, by default.
