@@ -1,11 +1,4 @@
 
----
-layout: post
-comments: true
-# other options
----
-
-
 <style TYPE="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
