@@ -1,5 +1,4 @@
 ---
-layout: home
 comments: true
 ---
 <style TYPE="text/css">
