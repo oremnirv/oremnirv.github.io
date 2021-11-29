@@ -14,9 +14,10 @@ markdown: kramdown
 permalink: pretty
 
 highlighter: rouge
-input: GFM
-auto_ids: true
-syntax_highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
 
 disqus:  
   shortname: (https-oremnirv-github-io)
