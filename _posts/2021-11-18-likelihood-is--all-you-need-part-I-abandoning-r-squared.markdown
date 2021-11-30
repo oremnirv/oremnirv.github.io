@@ -7,9 +7,6 @@ date:   2011-11-29
 mathjax: true
 ---
 
-1. $R^2$ *or the log-likelihood?*
-
-
 **Info:** This post may be of interest to scholars and practitioners who have already used/heard about the $R^2$ metric and are familiar with maximum likelihood estimation.
 
 $R^2$ **is useful when your model outputs fixed uncertainty. But log-likelihood is broader —- it can also deal with outputs with non fixed uncertainty!**
