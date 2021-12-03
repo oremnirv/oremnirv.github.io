@@ -3,7 +3,7 @@ layout: post
 comments: true
 title:  "Likelihood is all you need part I: abandoning R sqaured"
 excerpt: "A reason to stop using R squared and replacing it with the likelihood"
-date:   2011-11-29 
+date:   2021-12-03 
 mathjax: true
 ---
 
