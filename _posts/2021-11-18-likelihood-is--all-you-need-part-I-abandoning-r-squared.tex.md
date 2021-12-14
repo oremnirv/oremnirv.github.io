@@ -48,6 +48,7 @@ where we chose to model the mean temperature values $f(t)$ based only on
 time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). To show that the MSE is equal to the negative log-likelihood of the data, we provide a full derivation, starting from the definition of the log-likelihood.
 
 ```
+math
 \begin{flalign*}
 \min_{\sigma} - \operatorname{log}\ell(y_1, \dots, y_m | M1) &= \min_{\sigma} - \operatorname{log}P(y_1, \dots, y_m) &\\ &\stackrel{indep}{=} \min_{\sigma} - \operatorname{log}P(y_1) \cdot \dots \cdot\operatorname{log}P(y_m) &\\  &\stackrel{\text{log rules}}{=} \min_{\sigma} - [\operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_1 - f(1))^{2}}\}  + \dots &\\ & +  \operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_m - f(m))^{2}}\}] &\\ &= \min_{\sigma} - \sum_{i=1}^{m} [\operatorname{log}1 - \operatorname{log}\sigma - \operatorname{log}\sqrt{2}\pi -\dfrac{1}{2}(y_i - f(i))^{2}]
 \end{flalign*}
