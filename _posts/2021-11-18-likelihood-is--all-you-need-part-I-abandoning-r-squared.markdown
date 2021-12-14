@@ -35,7 +35,7 @@ $$
 $$
 
 
-where $\bar{y}$ the average of all the recorded yt values used for training our model. In figure [1.2](#_page2_x110.55_y176.62) we can see the denominator terms in the $R^2$, and in figure [1.3](#_page3_x110.55_y34.85) both the denominator and numerator terms.
+where $\bar{y}$ the average of all the recorded $y_t$ values used for training our model. In figure [1.2](#_page2_x110.55_y176.62) we can see the denominator terms in the $R^2$, and in figure [1.3](#_page3_x110.55_y34.85) both the denominator and numerator terms.
 
 ![](/figures/post_r_squared/a2.jpg)
 **Figure 1.3**
