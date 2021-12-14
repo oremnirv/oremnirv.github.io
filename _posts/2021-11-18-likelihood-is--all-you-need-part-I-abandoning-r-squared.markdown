@@ -48,14 +48,14 @@ where we chose to model the mean temperature values $f(t)$ based only on
 time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). To show that the MSE is equal to the negative log-likelihood of the data, we provide a full derivation, starting from the definition of the log-likelihood.
 
 <!-- ![]() -->
-<img src="/figures/post_r_squared/a41.jpg" alt="drawing1" width="400"/>
+<img src="/figures/post_r_squared/a41.jpg" alt="drawing1" width="450"/>
 
 
 To minimize $\sigma^{2}$, we just follow the usual procedure of taking the derivative of the last equation above and equating it to 0. And so we get 
 
 
 <!-- ![]() -->
-<img src="/figures/post_r_squared/a42.jpg" alt="drawing" width="300"/>
+<img src="/figures/post_r_squared/a42.jpg" alt="drawing" width="450"/>
 
 In the same manner we can think of the denominator of the second term representing the model (call it M2)
 
