@@ -47,32 +47,19 @@ $y_t \sim \operatorname{Normal}(f(t), σ^2)$
 where we chose to model the mean temperature values $f(t)$ based only on
 time $t$. This result is not specific to our model, but to any model with a normally distributed random variable with a fixed variance. So, for these models we can write that MSE = $\(\min\limits_{\sigma^{2}}\) - Likelihood(y_1, \dots, y_m|M1)$ (hereafter Likelihood will be denoted with $\ell$). To show that the MSE is equal to the negative log-likelihood of the data, we provide a full derivation, starting from the definition of the log-likelihood.
 
-```
-math
-\begin{equation}
-\begin{split}
-\min_{\sigma} - \operatorname{log}\ell(y_1, \dots, y_m | M1) &= \min_{\sigma} - \operatorname{log}P(y_1, \dots, y_m) &\\ &\stackrel{indep}{=} \min_{\sigma} - \operatorname{log}P(y_1) \cdot \dots \cdot\operatorname{log}P(y_m) &\\  &\stackrel{\text{log rules}}{=} \min_{\sigma} - [\operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_1 - f(1))^{2}}\}  + \dots &\\ & +  \operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_m - f(m))^{2}}\}] &\\ &= \min_{\sigma} - \sum_{i=1}^{m} [\operatorname{log}1 - \operatorname{log}\sigma - \operatorname{log}\sqrt{2}\pi -\dfrac{1}{2}(y_i - f(i))^{2}]
-\end{split}
-\end{equation}
+![](/figures/post_r_squared/a41.jpg)
 
-\noindent To minimize $\sigma^{2}$, we just follow the usual procedure of taking the derivative of the last equation above and equating it to 0. And so we get 
+To minimize $\sigma^{2}$, we just follow the usual procedure of taking the derivative of the last equation above and equating it to 0. And so we get 
 
-\begin{equation}
-\begin{split}
-\frac{\partial -\operatorname{log}\ell(y_1, \dots, y_m | M1)}{\partial \sigma} &= - \sum_{i}^{m} [\dfrac{1}{\sigma} -\dfrac{1}{2} - \dfrac{2\sigma (y_i - f(i))^{2}}{\sigma^{4}}]\stackrel{?}{=}0 &\\ &
-\text{then, via a common denominator} - \sum_{i}^{m} \dfrac{\sigma^{2} + (y_i - f(i))^{2}}{\sigma^{3}}=0 &\\ & \text{isolate $\sigma^{2}$ terms} -m\sigma^{2} = - \sum_{i=1}^{m} (y_i - f(i))^{2} &\\ & \text{lastly,} &\\ & \sigma^{2} = \dfrac{1}{m}\sum_{i=1}^{m}(y_i - f(i))^{2} = \text{MSE}
-\end{split}
-\end{equation}
-```
 
-<img src="https://render.githubusercontent.com/render/math?math=%0A%5Cbegin%7Bflalign*%7D%0A%5Cmin_%7B%5Csigma%7D%20-%20%5Coperatorname%7Blog%7D%5Cell(y_1%2C%20%5Cdots%2C%20y_m%20%7C%20M1)%20%26%3D%20%5Cmin_%7B%5Csigma%7D%20-%20%5Coperatorname%7Blog%7DP(y_1%2C%20%5Cdots%2C%20y_m)%20%26%5C%5C%20%26%5Cstackrel%7Bindep%7D%7B%3D%7D%20%5Cmin_%7B%5Csigma%7D%20-%20%5Coperatorname%7Blog%7DP(y_1)%20%5Ccdot%20%5Cdots%20%5Ccdot%5Coperatorname%7Blog%7DP(y_m)%20%26%5C%5C%20%20%26%5Cstackrel%7B%5Ctext%7Blog%20rules%7D%7D%7B%3D%7D%20%5Cmin_%7B%5Csigma%7D%20-%20%5B%5Coperatorname%7Blog%7D%20%5C%7B%5Cdfrac%7B1%7D%7B%5Csqrt%7B2%7D%5Cpi%20%5Csigma%7D%20%5Cexp%7B-%5Cdfrac%7B1%7D%7B2%5Csigma%5E%7B2%7D%7D(y_1%20-%20f(1))%5E%7B2%7D%7D%5C%7D%20%20%2B%20%5Cdots%20%26%5C%5C%20%26%20%2B%20%20%5Coperatorname%7Blog%7D%20%5C%7B%5Cdfrac%7B1%7D%7B%5Csqrt%7B2%7D%5Cpi%20%5Csigma%7D%20%5Cexp%7B-%5Cdfrac%7B1%7D%7B2%5Csigma%5E%7B2%7D%7D(y_m%20-%20f(m))%5E%7B2%7D%7D%5C%7D%5D%20%26%5C%5C%20%26%3D%20%5Cmin_%7B%5Csigma%7D%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bm%7D%20%5B%5Coperatorname%7Blog%7D1%20-%20%5Coperatorname%7Blog%7D%5Csigma%20-%20%5Coperatorname%7Blog%7D%5Csqrt%7B2%7D%5Cpi%20-%5Cdfrac%7B1%7D%7B2%7D(y_i%20-%20f(i))%5E%7B2%7D%5D%0A%5Cend%7Bflalign*%7D%0A%0A%5Cnoindent%20To%20minimize%20%24%5Csigma%5E%7B2%7D%24%2C%20we%20just%20follow%20the%20usual%20procedure%20of%20taking%20the%20derivative%20of%20the%20last%20equation%20above%20and%20equating%20it%20to%200.%20And%20so%20we%20get%20%0A%0A%5Cbegin%7Bflalign*%7D%0A%5Cfrac%7B%5Cpartial%20-%5Coperatorname%7Blog%7D%5Cell(y_1%2C%20%5Cdots%2C%20y_m%20%7C%20M1)%7D%7B%5Cpartial%20%5Csigma%7D%20%26%3D%20-%20%5Csum_%7Bi%7D%5E%7Bm%7D%20%5B%5Cdfrac%7B1%7D%7B%5Csigma%7D%20-%5Cdfrac%7B1%7D%7B2%7D%20-%20%5Cdfrac%7B2%5Csigma%20(y_i%20-%20f(i))%5E%7B2%7D%7D%7B%5Csigma%5E%7B4%7D%7D%5D%5Cstackrel%7B%3F%7D%7B%3D%7D0%20%26%5C%5C%20%26%0A%5Ctext%7Bthen%2C%20via%20a%20common%20denominator%7D%20-%20%5Csum_%7Bi%7D%5E%7Bm%7D%20%5Cdfrac%7B%5Csigma%5E%7B2%7D%20%2B%20(y_i%20-%20f(i))%5E%7B2%7D%7D%7B%5Csigma%5E%7B3%7D%7D%3D0%20%26%5C%5C%20%26%20%5Ctext%7Bisolate%20%24%5Csigma%5E%7B2%7D%24%20terms%7D%20-m%5Csigma%5E%7B2%7D%20%3D%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bm%7D%20(y_i%20-%20f(i))%5E%7B2%7D%20%26%5C%5C%20%26%20%5Ctext%7Blastly%2C%7D%20%26%5C%5C%20%26%20%5Csigma%5E%7B2%7D%20%3D%20%5Cdfrac%7B1%7D%7Bm%7D%5Csum_%7Bi%3D1%7D%5E%7Bm%7D(y_i%20-%20f(i))%5E%7B2%7D%20%3D%20%5Ctext%7BMSE%7D%0A%5Cend%7Bflalign*%7D">
+![](/figures/post_r_squared/a42.jpg)
 
 In the same manner we can think of the denominator of the second term representing the model (call it M2)
 
 $y_t \sim  \operatorname{Normal}(\bar{y}, ρ^2)$
 
 ![](/figures/post_r_squared/a3.jpg)
-**Figure 1.5**
+**Figure 1.4**
 
 and hence calculating $R^2$ is the reciprocal value to the maximum likelihood ratio between the fixed variances (in our case σ and ρ) of normally distributed random variables. In other words
 
