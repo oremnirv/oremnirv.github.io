@@ -52,7 +52,7 @@ time $t$. This result is not specific to our model, but to any model with a norm
 To minimize $\sigma^{2}$, we just follow the usual procedure of taking the derivative of the last equation above and equating it to 0. And so we get 
 
 
-![](/figures/post_r_squared/a42.jpg)
+![](/figures/post_r_squared/a42.jpg =100x20)
 
 In the same manner we can think of the denominator of the second term representing the model (call it M2)
 
