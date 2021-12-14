@@ -49,7 +49,8 @@ time $t$. This result is not specific to our model, but to any model with a norm
 
 ```
 math
-\begin{flalign*}
+\begin{equation}
+\begin{split}
 \min_{\sigma} - \operatorname{log}\ell(y_1, \dots, y_m | M1) &= \min_{\sigma} - \operatorname{log}P(y_1, \dots, y_m) &\\ &\stackrel{indep}{=} \min_{\sigma} - \operatorname{log}P(y_1) \cdot \dots \cdot\operatorname{log}P(y_m) &\\  &\stackrel{\text{log rules}}{=} \min_{\sigma} - [\operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_1 - f(1))^{2}}\}  + \dots &\\ & +  \operatorname{log} \{\dfrac{1}{\sqrt{2}\pi \sigma} \exp{-\dfrac{1}{2\sigma^{2}}(y_m - f(m))^{2}}\}] &\\ &= \min_{\sigma} - \sum_{i=1}^{m} [\operatorname{log}1 - \operatorname{log}\sigma - \operatorname{log}\sqrt{2}\pi -\dfrac{1}{2}(y_i - f(i))^{2}]
 \end{flalign*}
 
@@ -58,7 +59,8 @@ math
 \begin{flalign*}
 \frac{\partial -\operatorname{log}\ell(y_1, \dots, y_m | M1)}{\partial \sigma} &= - \sum_{i}^{m} [\dfrac{1}{\sigma} -\dfrac{1}{2} - \dfrac{2\sigma (y_i - f(i))^{2}}{\sigma^{4}}]\stackrel{?}{=}0 &\\ &
 \text{then, via a common denominator} - \sum_{i}^{m} \dfrac{\sigma^{2} + (y_i - f(i))^{2}}{\sigma^{3}}=0 &\\ & \text{isolate $\sigma^{2}$ terms} -m\sigma^{2} = - \sum_{i=1}^{m} (y_i - f(i))^{2} &\\ & \text{lastly,} &\\ & \sigma^{2} = \dfrac{1}{m}\sum_{i=1}^{m}(y_i - f(i))^{2} = \text{MSE}
-\end{flalign*}
+end{split}
+\end{equation}
 ```
 
 
