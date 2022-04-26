@@ -19,7 +19,7 @@ So in what situations should we expect it to actually match?
 In the example we ran above we choose arbitrarly a range for the u values. If we were to choose a different range, we would see that the histograms do not match. 
 Although, they should. So there is some uncertainty in the produced histograms, which we can in turn quantify. 
 
-If however, we would change the range in our model (e.g. different slices in non overlapping times) and the histograms do look the same (for "enough" samples of different ranges) then we at least know that our model produces on kind of histogram. If our model represents the ground truth, we would expect the histograms to coincide. Otherwise, we would need to think how to debug our model --- but that doesn't mean that our new model's histogram would then match the ground truth histogram.   
+If however, we would change the range in our model (e.g. different slices in non overlapping times) and the histograms do look the same (for "enough" samples of different ranges) then we at least know that our model produces one kind of histogram. If our model represents the ground truth, we would expect the histograms to coincide. Otherwise, we would need to think how to debug our model --- but that doesn't mean that our new model's histogram would then match the ground truth histogram.   
 
 
   
